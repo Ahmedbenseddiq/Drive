@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\CategoryDto;
 use App\Models\category;
 use App\Http\Requests\StorecategoryRequest;
 use App\Http\Requests\UpdatecategoryRequest;
+use App\Repositories\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
+
+    public function __construct(public CategoryRepositoryInterface $repository){
+
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('operator.category.categories');
+        $categories = Category::all();
+        return view('operator.category.categories',['categories' => $categories]);
     }
 
     /**
@@ -27,9 +35,11 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecategoryRequest $request)
+    public function store(StoreCategoryRequest $storeCategoryRequest)
     {
-        //
+        $categoryDto = CategoryDto::fromRequest($storeCategoryRequest);
+
+        $this->repository->store($categoryDto);
     }
 
     /**
@@ -37,7 +47,7 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
+        
     }
 
     /**
@@ -45,15 +55,16 @@ class CategoryController extends Controller
      */
     public function edit(category $category)
     {
-        //
+        return view('operator.category.editCategory',['category' => $category]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecategoryRequest $request, category $category)
+    public function update(category $category, UpdatecategoryRequest $request)
     {
-        //
+        $categoryDto = categoryDto::fromRequest($request);
+        $this->repository->update($category, $categoryDto);
     }
 
     /**
@@ -61,6 +72,7 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        //
+        $category->delete();
+        return abort(redirect(route('operator.categories')))->with('success','Category deleted Successfully');
     }
 }

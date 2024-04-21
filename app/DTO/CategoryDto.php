@@ -3,6 +3,7 @@
 namespace App\DTO;
 
 use App\Http\Requests\StorecategoryRequest;
+use App\Http\Requests\UpdatecategoryRequest;
 
 class categoryDto
 {
@@ -12,7 +13,7 @@ class categoryDto
         public string $image,){}
 
 
-    public static function fromRequest(StorecategoryRequest $request): categoryDto
+    public static function fromRequest(StorecategoryRequest | UpdatecategoryRequest $request): categoryDto
     {
         // dd($request);
         $name = $request->validated()['name'];

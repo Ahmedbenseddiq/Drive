@@ -34,4 +34,7 @@ Route::get('operator/home', [OperatorController::class, 'index'])->name('operato
 
 Route::get('operator/category/categories', [CategoryController::class, 'index'])->name('operator.categories');
 Route::get('operator/category/addCategory', [CategoryController::class, 'create'])->name('operator.addCategory');
-Route::post('operator/category/addCategory', [CategoryController::class, 'store'])->name('operator.storeCategory');
+Route::post('operator/category/storeCategory', [CategoryController::class, 'store'])->name('operator.storeCategory');
+Route::get('operator/category/editCategory/{category}', [CategoryController::class, 'edit'])->name('operator.editCategory');
+Route::put('operator/category/updateCategory/{category}', [CategoryController::class, 'update'])->name('operator.updateCategory');
+Route::delete('operator/category/destroyCategory/{category}', [CategoryController::class, 'destroy'])->name('operator.destroyCategory');
