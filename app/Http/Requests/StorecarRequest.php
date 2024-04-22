@@ -11,7 +11,7 @@ class StorecarRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class StorecarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'registeration_number' => 'required',
+            'price_per_day' => 'required',
+            'avalibility' => 'required',
+            'carburant' => 'required',
+            'carDetail_id' => 'required',
+            'category_id' => 'required',
+            'operator_id' => 'required',
         ];
     }
 }

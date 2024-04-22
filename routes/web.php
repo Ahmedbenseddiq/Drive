@@ -50,5 +50,6 @@ Route::delete('operator/carInfo/destroyCarInfo/{carDetail}', [CarInfoController:
 
 
 Route::get('operator/car/cars', [CarController::class, 'index'])->name('operator.cars');
+Route::get('operator/car/addCar', [CarController::class, 'create'])->name('operator.addCar');
 
 

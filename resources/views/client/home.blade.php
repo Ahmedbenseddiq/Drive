@@ -5,13 +5,15 @@
     <body class="bg-black">
         <div class="relative h-screen">
             <!-- Background video -->
-            <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
-                <source src="{{ asset('src/video/lambo.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>    
+            <div class="fixed top-0 left-0 w-full h-full overflow-hidden">
+                <video autoplay muted loop class="w-full h-full object-cover">
+                  <source src="{{ asset('src/video/lambo.mp4') }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div> 
         
             <!-- Navigation bar -->
-            <nav class="fixed top-0 left-0 right-0 bg-transparent dark:bg-transparent z-10">
+            <nav id="navbar" class="fixed top-0 left-0 right-0 bg-transparent dark:bg-transparent z-10 backdrop-blur-md">
                 <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
                     <!-- Profile dropdown button -->
                     <button data-collapse-toggle="profile-dropdown" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-blur focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blur dark:focus:ring-gray-600" aria-controls="profile-dropdown" aria-expanded="false">
@@ -81,8 +83,8 @@
 
 
         <div class="flex justify-center">
-            <div class="text-center">
-                <h2 class="text-white mt-8 mb-5">Our Categories</h2>
+            <div class="text-center z-10">
+                <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Categories</h2>
                 <div class="mb-20">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -153,7 +155,7 @@
         
         <div class="flex justify-center">
             <div class="text-center">
-                <h3 class="text-white mt-8 mb-5">Models</h3>
+                <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Models</h2>
                 <div class="max-w-screen-lg mx-auto"> <!-- Add a wrapper with margin -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- ***** -->
