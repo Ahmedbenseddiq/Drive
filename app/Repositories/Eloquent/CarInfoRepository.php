@@ -31,4 +31,12 @@ class CarInfoRepository implements CarInfoRepositoryInterface
             'model' => $carInfoDto->model,
         ];
     }
+
+    public function update(Cardetail $cardetail, CarInfoDto $carInfoDto){
+        $cardetail = Cardetail::find($cardetail->id);
+        $cardetail->brand = $carInfoDto->brand;
+        $cardetail->model = $carInfoDto->model;
+        $cardetail->save();
+        return abort(redirect()->route('operator.carInfo'));
+    }
 }

@@ -10,7 +10,7 @@
             <div class="flex items-center justify-center p-6 sm:p-12">
                 <div class="w-full md:w-full">
                     <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Create Category</h1>
-                    <form action="" method="POST">
+                    <form action="/operator/carInfo/updateCarInfo/{{$carDetail->id }}" method="POST">
                         @csrf
                         @method('put')
                         <div>

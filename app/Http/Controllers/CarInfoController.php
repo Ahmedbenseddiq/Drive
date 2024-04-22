@@ -63,7 +63,8 @@ class CarInfoController extends Controller
      */
     public function update(UpdatecarInfoRequest $request, carDetail $carDetail)
     {
-        //
+        $carInfoDto = CarInfoDto::fromRequest($request);
+        $this->repository->update($carDetail, $carInfoDto);
     }
 
     /**
