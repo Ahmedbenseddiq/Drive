@@ -13,7 +13,7 @@ class CarInfoController extends Controller
      */
     public function index()
     {
-        
+        return view('operator.carInfo.carInfo');
     }
 
     /**

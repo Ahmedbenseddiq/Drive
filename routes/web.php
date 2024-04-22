@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarInfoController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OperatorController;
@@ -31,10 +32,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('client/home', [ClientController::class, 'index'])->name('client.home');
 
 Route::get('operator/home', [OperatorController::class, 'index'])->name('operator.home');
-
 Route::get('operator/category/categories', [CategoryController::class, 'index'])->name('operator.categories');
 Route::get('operator/category/addCategory', [CategoryController::class, 'create'])->name('operator.addCategory');
 Route::post('operator/category/storeCategory', [CategoryController::class, 'store'])->name('operator.storeCategory');
 Route::get('operator/category/editCategory/{category}', [CategoryController::class, 'edit'])->name('operator.editCategory');
 Route::put('operator/category/updateCategory/{category}', [CategoryController::class, 'update'])->name('operator.updateCategory');
 Route::delete('operator/category/destroyCategory/{category}', [CategoryController::class, 'destroy'])->name('operator.destroyCategory');
+Route::get('operator/category/carInfo', [CarInfoController::class, 'index'])->name('operator.carInfo');
+

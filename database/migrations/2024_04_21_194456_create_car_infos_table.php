@@ -9,7 +9,6 @@ return new class extends Migration {
         Schema::create('carDetails', function (Blueprint $table) {
             $table->id();
             $table->string('brand');
-            $table->string('logo');
             $table->string('model');
             $table->timestamps();
         });
