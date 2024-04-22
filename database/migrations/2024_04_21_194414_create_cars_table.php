@@ -13,8 +13,8 @@ return new class extends Migration {
             $table->decimal('price_per_day', 8, 2);
             $table->enum('avalability', ['available', 'reserved', 'maintenance']);  
             $table->enum('carburant', ['diesel', 'fuel', 'electric', 'hybrid']);
-            $table->unsignedBigInteger('model_id');
-            $table->foreign('model_id')->references('id')->on('models');
+            $table->unsignedBigInteger('carDetail_id');
+            $table->foreign('carDetail_id')->references('id')->on('carDetails');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('operator_id');
