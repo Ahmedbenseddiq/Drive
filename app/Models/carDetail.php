@@ -9,11 +9,10 @@ class carDetail extends Model
 {
     use HasFactory; 
 
-    protected $table = 'models';
+    protected $table = 'carDetails';
 
     protected $fillable = [
         'brand',
-        'logo',
         'model',
     ];
 
