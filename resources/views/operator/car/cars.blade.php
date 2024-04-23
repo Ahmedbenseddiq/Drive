@@ -19,13 +19,13 @@
                     </a>
                 </li>
                 <li class="relative px-6 py-3">
-                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
-                    <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="{{ route('operator.carInfo') }}">
+                    <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('operator.carInfo') }}">
                         <span class="ml-4">Car Info</span>
                     </a>
                 </li>
                 <li class="relative px-6 py-3">
-                    <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="operator.html">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+                    <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="operator.html">
                         <span class="ml-4">Cars</span>
                     </a>
                 </li>
@@ -166,29 +166,43 @@
                                     <th class="px-4 py-3">Price/Day</th>
                                     <th class="px-4 py-3">Avalibility</th>
                                     <th class="px-4 py-3">Carburant</th>
-                                    <th class="px-4 py-3">Avalibility</th>
+                                    <th class="px-4 py-3">Car Detail</th>
                                     <th class="px-4 py-3">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                                
+                                @foreach($cars as $car)
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3">
-                                        
+                                        {{ $car->registration_number }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        
+                                        {{ $cars->first()->price_per_day }} MAD/Day
                                     </td>
                                     <td class="px-4 py-3">
+                                        @if ($car->avalability === 'available')
                                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                            
+                                            {{ $cars->first()->avalability }}
                                         </span>
+                                        @elseif($car->avalability === 'reserved')
+                                        <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-100">
+                                            {{ $cars->first()->avalability }}
+                                        </span>
+                                        @elseif($car->avalability === 'maintenance')
+                                        <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100">
+                                            {{ $cars->first()->avalability }}
+                                        </span>
+                                        @endif
                                     </td>
                                     <td class="px-4 py-3">
-                                        
+                                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{{ $car->carburant }}</span>
                                     </td>
                                     <td class="px-4 py-3">
-                                        
+                                        @if ($car->carDetail)
+                                            <h3 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->brand }},{{ $car->carDetail->model }}</h3>
+                                        @else
+                                            <p>No car details available</p>
+                                        @endif                                    
                                     </td>
                                     <td class="px-4 py-3 text-sm">
                                         <div class="flex space-x-4">
@@ -209,7 +223,7 @@
                                         </div>
                                     </td>
                                 </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

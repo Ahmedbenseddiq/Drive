@@ -73,6 +73,6 @@ class CarInfoController extends Controller
     public function destroy(carDetail $carDetail)
     {
         $carDetail->delete();
-        return abort(redirect(route('operator.carInfo')))->with('success','Car deleted Successfully');
+        return abort(redirect(route('operator.carInfo')))->with('success','Car info deleted Successfully');
     }
 }

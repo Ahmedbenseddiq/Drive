@@ -11,8 +11,8 @@
     <section class="bg-transparent-50 dark:bg-transparent">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="" class="flex items-center z-10 mb-6 text-2xl font-semibold text-tra dark:text-white">
-                <img class="w-8 h-8 mr-2 z-10" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-                Drive    
+                <img class="w-56 mr-2 z-10" src="./src/images/logo.png" alt="logo">
+                    
             </a>
             <div class="w-full bg-white z-10 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-transparent dark:border-t bg-opacity-50 backdrop-filter backdrop-blur-md">
                 <div class="p-6 space-y-4 md:space-y-6 z-10 sm:p-8">

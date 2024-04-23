@@ -33,10 +33,10 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         if ($registerDto->role === 'client') {
             $client = Client::create(['user_id' => $user->id]); 
-            return abort(redirect()->route('client.home'));
+            return abort(redirect()->route('loginpage'));
         } else if ($registerDto->role === 'operator') {
             $operator = Operator::create(['user_id' => $user->id]);
-            return abort(redirect()->route('operator.home'));
+            return abort(redirect()->route('loginpage'));
         } 
 
     }

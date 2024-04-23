@@ -28,17 +28,5 @@
                 });
             });
         </script>
-        <script>
-            window.addEventListener('scroll', function() {
-                var navbar = document.getElementById('navbar');
-                if (window.scrollY > 0) {
-                    navbar.classList.add('backdrop-blur-md');
-                    navbar.classList.remove('backdrop-blur-0');
-                } else {
-                    navbar.classList.remove('backdrop-blur-md');
-                    navbar.classList.add('backdrop-blur-0');
-                }
-            });
-        </script>
     </body>
 </html>    

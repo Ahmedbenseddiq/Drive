@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\client;
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
+use App\Models\car;
+use App\Models\Category;
 
 class ClientController extends Controller
 {
@@ -13,6 +15,13 @@ class ClientController extends Controller
      */
     public function index(){
         return view('client.home');
+    }
+
+
+    public function cars(){
+        $categories = Category::all();
+        $cars = car::all();
+        return view('client.cars', compact('categories', 'cars'));  
     }
 
     /**

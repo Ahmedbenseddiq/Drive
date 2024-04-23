@@ -2,7 +2,9 @@
 
 namespace App\Repositories;
 
+use App\DTO\CarDto;
+
 interface CarRepositoryInterface
 {
-   // Extend with your methods
+   public function store(CarDto $carDto);
 }

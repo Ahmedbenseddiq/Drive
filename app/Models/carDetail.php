@@ -16,8 +16,8 @@ class carDetail extends Model
         'model',
     ];
 
-    public function carDetail()
+    public function cars()
     {
-        return $this->hasMany(carDetail::class);
+        return $this->hasMany(Car::class);
     }
 }

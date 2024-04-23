@@ -20,10 +20,11 @@ class car extends Model
         'operator_id',
     ];
 
-    public function model()
+    public function carDetail()
     {
         return $this->belongsTo(CarDetail::class);
     }
+
 
     public function category()
     {

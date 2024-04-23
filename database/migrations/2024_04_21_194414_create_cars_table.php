@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('registration_number')->unique();
-            $table->decimal('price_per_day', 8, 2);
+            $table->integer('price_per_day');
             $table->enum('avalability', ['available', 'reserved', 'maintenance']);  
             $table->enum('carburant', ['diesel', 'fuel', 'electric', 'hybrid']);
             $table->unsignedBigInteger('carDetail_id');

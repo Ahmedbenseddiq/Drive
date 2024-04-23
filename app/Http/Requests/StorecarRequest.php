@@ -22,9 +22,9 @@ class StorecarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'registeration_number' => 'required',
+            'registration_number' => 'required',
             'price_per_day' => 'required',
-            'avalibility' => 'required',
+            'avalability' => 'required',
             'carburant' => 'required',
             'carDetail_id' => 'required',
             'category_id' => 'required',
