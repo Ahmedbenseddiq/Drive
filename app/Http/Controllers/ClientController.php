@@ -14,7 +14,8 @@ class ClientController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        return view('client.home');
+        $cars = car::all();
+        return view('client.home', ['cars' => $cars]);
     }
 
 

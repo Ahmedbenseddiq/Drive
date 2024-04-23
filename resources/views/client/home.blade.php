@@ -159,45 +159,42 @@
                 <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Models</h2>
                 <div class="max-w-screen-lg mx-auto"> <!-- Add a wrapper with margin -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- ***** -->
+                        @foreach($cars as $car)
                         <div class="group relative cursor-pointer overflow-hidden bg-white p-6 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg">
-                        
-                                <figure ><img class="rounded" src="https://images.pexels.com/photos/3647693/pexels-photo-3647693.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" /></figure>
-                                <div class="card-body">
-                                <h2 class="card-title">model</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis tenetur sit sint laborum commodi! Inventore iste odit vero atque ullam officiis, quibusdam voluptatem at. Enim deleniti labore consequatur corporis itaque!</p>
-                                <div class="card-actions justify-end">
-                                    <a class="">Category</a>
+                            <figure >
+                                <img class="rounded" src="https://images.pexels.com/photos/3647693/pexels-photo-3647693.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" />
+                            </figure>
+                            <div class="card-body">
+                                <h2 class="card-title">
+                                    @if ($car->carDetail)
+                                    <h3 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->brand }},{{ $car->carDetail->model }}</h3>
+                                @else
+                                    <p>No car details available</p>
+                                @endif
+                                </h2>
+                                <div class="flex items-center me-2 mt-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{{ $car->carburant }}</span>
+                                    @if ($car->avalability === 'available')
+                                        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Available</span>
+                                    @elseif ($car->avalability === 'reserved')
+                                        <span class="bg-gray-300 text-gray-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Reserved</span>
+                                    @elseif ($car->avalability === 'maintenance')
+                                        <span class="bg-orange-200 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Maintenance</span>
+                                    @else
+                                        <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Unknown</span>
+                                    @endif
+                                </div>                                 
+                                <div class="flex items-center justify-between mt-4">
+                                    @if ($car->category)
+                                    <span class="text-gray-900 font-bold text-lg"><a class="">Category : {{ $car->category->name }}</a></span>                                
+                                    @else
+                                    <p>No category available</p>
+                                    @endif
+                                    <span class="text-gray-900 font-bold text-lg">{{ $car->price_per_day }} MAD/Day</span>
                                 </div>
-                                </div>
-                            
+                            </div>
                         </div>
-                        <!-- ***** -->
-                        <div class="group relative cursor-pointer overflow-hidden bg-white p-6 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg">
-                        
-                                <figure ><img class="rounded" src="https://images.pexels.com/photos/3647693/pexels-photo-3647693.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" /></figure>
-                                <div class="card-body">
-                                <h2 class="card-title">model</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis tenetur sit sint laborum commodi! Inventore iste odit vero atque ullam officiis, quibusdam voluptatem at. Enim deleniti labore consequatur corporis itaque!</p>
-                                <div class="card-actions justify-end">
-                                    <a class="">Category</a>
-                                </div>
-                                </div>
-                            
-                        </div>
-                        <!-- ***** -->
-                        <div class="group relative cursor-pointer overflow-hidden bg-white p-6 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg">
-                        
-                                <figure ><img class="rounded" src="https://images.pexels.com/photos/3647693/pexels-photo-3647693.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" /></figure>
-                                <div class="card-body">
-                                <h2 class="card-title">model</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis tenetur sit sint laborum commodi! Inventore iste odit vero atque ullam officiis, quibusdam voluptatem at. Enim deleniti labore consequatur corporis itaque!</p>
-                                <div class="card-actions justify-end">
-                                    <a class="">Category</a>
-                                </div>
-                                </div>
-                            
-                        </div>
+                       @endforeach
                     </div>
                 </div>
             </div>
@@ -266,7 +263,7 @@
             </section>
         </div>
             
-        <footer class="mt-20 bg-transparent dark:bg-transparent">
+        <footer class="mt-20  bg-transparent dark:bg-transparent">
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div class="md:flex md:justify-between">
                     <div class="mb-6 md:mb-0">
