@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\admin;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreadminRequest;
 use App\Http\Requests\UpdateadminRequest;
 
@@ -13,54 +15,23 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $users = User::where('role', 'client')
+        ->orWhere('role', 'operator')
+        ->get();        
+        return view('admin.home', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function Restriction(Request $request, $userId)
     {
-        //
+        $user = User::findOrFail($userId);
+
+        $user->restriction = $user->restriction == 0 ? 1 : 0;
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'User restriction toggled successfully.');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreadminRequest $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateadminRequest $request, admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(admin $admin)
-    {
-        //
-    }
 }

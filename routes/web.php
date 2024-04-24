@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
+    Route::put('admin/{userId}', [AdminController::class, 'restriction'])->name('restriction');
 
 
 }); 

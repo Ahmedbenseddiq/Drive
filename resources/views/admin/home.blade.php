@@ -4,7 +4,7 @@
 
 <div class="flex h-screen bg-gray-50 dark:bg-black">
     <!-- Desktop sidebar -->
-    <aside id="sidebar" class="hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0 sidebar">
+    {{-- <aside id="sidebar" class="hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0 sidebar">
         <div class="py-4 text-gray-500 dark:text-gray-400">
             <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#"> Drive </a>
             <ul class="mt-6">
@@ -31,10 +31,10 @@
                 </li>
             </ul>
         </div>
-    </aside>
+    </aside> --}}
 
 
-    <aside id="mobileSidebar" class="hidden absolute inset-y-0 left-0 z-30 w-64 overflow-y-auto bg-white dark:bg-gray-800 md:hidden flex-shrink-0 sidebar" style="margin-top: 40px;">
+    {{-- <aside id="mobileSidebar" class="hidden absolute inset-y-0 left-0 z-30 w-64 overflow-y-auto bg-white dark:bg-gray-800 md:hidden flex-shrink-0 sidebar" style="margin-top: 40px;">
         <div class="py-4 text-gray-500 dark:text-gray-400">
             <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">Drive</a>
             <ul class="mt-6">
@@ -56,16 +56,15 @@
                 </li>
             </ul>
         </div>
-    </aside>
+    </aside> --}}
     <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
             <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
                 <!-- Mobile hamburger -->
-                <button id="sidebarToggle" class="burger-menu p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple" aria-label="Menu">
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
+                <div class="header text-center">
+                    <h1 class="text-xl font-bold text-white">DRIVE</h1>
+                </div>
+                
                 
                 <div class="flex justify-center flex-1 lg:mr-32">
                 </div>
@@ -154,65 +153,60 @@
                 </div>
                 <!-- New Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full overflow-x-auto">
-                        <table class="w-full whitespace-no-wrap">
+                    <div class="w-3/4 mx-auto overflow-x-auto">
+                        <table class="w-full whitespace-no-wrap mx-10x">
                             <thead>
                                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                     <th class="px-4 py-3">Full Name</th>
                                     <th class="px-4 py-3">Email</th>
-                                    <th class="px-4 py-3">CIN</th>
-                                    <th class="px-4 py-3">Driving Licence Number</th>
-                                    <th class="px-4 py-3">Adresse</th>
+                                    <th class="px-4 py-3">Role</th>
                                     <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                @foreach ($users as $user)
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3">
-                                        hans burg
-                                        </div>
+                                        {{ $user->name }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        abcd@abcd.mail.efg
+                                        {{ $user->email }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        f35484431
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        1215852085
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        37 Musse Hill Road
+                                        {{ $user->role }}
                                     </td>
                                     <td class="px-4 py-3 text-xs">
-                                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                            Active
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-gray-400">
-                                    <td class="px-4 py-3">
-                                        romina gillan
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        xyz@abc.de
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        f35454444
+                                        @if($user->restriction == 0)
+                                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                                Allowed
+                                            </span>
+                                        @elseif($user->restriction == 1)
+                                            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100">
+                                                Restricted
+                                            </span>
+                                        @endif
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        1214547555
+                                        <form action="{{ route('restriction', ['userId' => $user->id]) }}" method="POST" class="inline-block">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="ml-2">
+                                                @if($user->restriction == 0)
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                                    </svg>
+                                                @elseif($user->restriction == 1)
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                    </svg>
+                                                @endif
+                                            </button>
+                                        </form>
                                     </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        21 Seafield Terrace
-                                    </td>
-                                    <td class="px-4 py-3 text-xs">
-                                        <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100">
-                                            Disabled
-                                        </span>
-                                    </td>
-                                </tr>
+                                </tr>  
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
