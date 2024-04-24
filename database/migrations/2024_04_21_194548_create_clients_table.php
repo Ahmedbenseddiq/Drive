@@ -20,7 +20,6 @@ return new class extends Migration
         $table->string('driving_licence_number')->nullable()->unique();
         $table->string('city')->nullable();
         $table->string('address')->nullable();
-        $table->boolean('restriction')->default(false);
         $table->timestamps();
     });
 }

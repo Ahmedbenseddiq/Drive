@@ -14,7 +14,7 @@
             </div>
         
             <!-- Navigation bar -->
-            <nav id="navbar" class="top-0 left-0 right-0  bg-transparent dark:bg-transparent relative z-10 backdrop-blur-md">
+            <nav id="navbar" class="top-0 left-0 right-0  bg-transparent dark:bg-transparent relative z-10">
                 <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
                     <!-- Profile dropdown button -->
                     <button data-collapse-toggle="profile-dropdown" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-blur focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blur dark:focus:ring-gray-600" aria-controls="profile-dropdown" aria-expanded="false">
@@ -55,9 +55,9 @@
                     <!-- Main menu -->
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
-                            <li><a href="#" class="block px-4 py-2 text-white">Home</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Services</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Pricing</a></li>
+                            <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
+                            <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white">Categories</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
                         </ul>
                     </div>
@@ -71,8 +71,8 @@
                     <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white text-center">Embrace the road, ignite your passion.</h1>
                     <p class="mt-4 text-lg text-gray-300 max-w-lg text-center z-10">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
                     <div class="mt-8 flex flex-col items-center z-10 space-y-4">
-                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-900" style="backdrop-filter: none;" onmouseover="this.parentNode.style.backdropFilter='blur(10px)'" onmouseout="this.parentNode.style.backdropFilter='none'">
-                            <span>Get started</span>
+                        <a href="{{ route('client.cars') }}" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-900" style="backdrop-filter: none;" onmouseover="this.parentNode.style.backdropFilter='blur(10px)'" onmouseout="this.parentNode.style.backdropFilter='none'">
+                            <span>Cars In Stock</span>
                         </a>
                     </div>
                     
@@ -89,50 +89,11 @@
                     <div class="mb-20">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div class="block max-w-[18rem] rounded-lg bg-white text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaeEmrNOL3-Eay5qMk1o1Ehw1WCOQBe7CazTp4Q_-Q-lPI84dyhhVteFH4xWHWX2BwoA&usqp=CAU'); background-size: cover;">
+                                @foreach ($categories as $category)
+                                <div class="block max-w-[18rem] rounded-lg bg-black text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('{{ $category->image }}'); background-size: cover;">
                                     <div class="p-6">
                                         <h5 class="mb-1 text-xl font-medium leading-tight">
-                                            Category name
-                                        </h5>
-                                        <h6 class="mb-2 text-transparent font-medium leading-tight ">
-                                            Card subtitle
-                                        </h6>
-                                        <p class="mb-4 text-base text-transparent leading-normal">
-                                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                                        </p>
-                                        <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            
-                                        </a>
-                                        <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            view more
-                                        </a>
-                                    </div>
-                                </div>  
-                                
-                                <div class="block max-w-[18rem] rounded-lg bg-white text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaeEmrNOL3-Eay5qMk1o1Ehw1WCOQBe7CazTp4Q_-Q-lPI84dyhhVteFH4xWHWX2BwoA&usqp=CAU'); background-size: cover;">
-                                    <div class="p-6">
-                                        <h5 class="mb-1 text-xl font-medium leading-tight">
-                                            Category name
-                                        </h5>
-                                        <h6 class="mb-2 text-transparent font-medium leading-tight ">
-                                            Card subtitle
-                                        </h6>
-                                        <p class="mb-4 text-base text-transparent leading-normal">
-                                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                                        </p>
-                                        <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            
-                                        </a>
-                                        <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            view more
-                                        </a>
-                                    </div>
-                                </div>   
-                
-                                <div class="block max-w-[18rem] rounded-lg bg-white text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaeEmrNOL3-Eay5qMk1o1Ehw1WCOQBe7CazTp4Q_-Q-lPI84dyhhVteFH4xWHWX2BwoA&usqp=CAU'); background-size: cover;">
-                                    <div class="p-6">
-                                        <h5 class="mb-1 text-xl font-medium leading-tight">
-                                            Category name
+                                            {{ $category->name }}
                                         </h5>
                                         <h6 class="mb-2 text-transparent font-medium leading-tight ">
                                             Card subtitle
@@ -148,6 +109,7 @@
                                         </a>
                                     </div>
                                 </div> 
+                                @endforeach 
                             </div>
                         </div>
                     </div>

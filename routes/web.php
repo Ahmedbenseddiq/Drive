@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CarInfoController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\guestController;
 use App\Http\Controllers\OperatorController;
 
 /*
@@ -19,15 +21,16 @@ use App\Http\Controllers\OperatorController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [guestController::class, 'welcome'])->name('welcome');
+Route::get('/cars', [guestController::class, 'cars'])->name('cars');
+
 
 
 Route::get('/login', [AuthController::class, 'loginpage'])->name('loginpage');
 Route::get('/register', [AuthController::class, 'registerpage'])->name('registerpage');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/restricted', [AuthController::class, 'restricted'])->name('restricted');
 
 
 Route::middleware('auth')->group(function () {
@@ -56,5 +59,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('client/home', [ClientController::class, 'index'])->name('client.home');
     Route::get('client/cars', [ClientController::class, 'cars'])->name('client.cars');
+    Route::get('client/singleCar/{carId}', [ClientController::class, 'singleCar'])->name('client.singleCar');
+
+
+    Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
+
 
 }); 

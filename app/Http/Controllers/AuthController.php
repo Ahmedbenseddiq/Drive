@@ -27,6 +27,10 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    public function restricted(){
+        return view('auth.restricted');
+    }
+
 
     public function register(registerRequest $registerRequest)
     {

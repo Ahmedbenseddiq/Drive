@@ -12,7 +12,6 @@
                 </video>
                 <div class="absolute top-0 left-0 w-full h-full backdrop-blur-md"></div>
             </div>
-            
         
             <!-- Navigation bar -->
             <nav id="navbar" class="top-0 left-0 right-0  bg-transparent dark:bg-transparent relative z-10">
@@ -31,10 +30,10 @@
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="block px-4 py-2 text-white">Login</button>
+                                    <button type="submit" class="block px-4 py-2 text-white">Logout</button>
                                 </form>
                             </li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Register</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white">Profil</a></li>
                         </ul>
                     </div>
         
@@ -56,83 +55,49 @@
                     <!-- Main menu -->
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
-                            <li><a href="{{ route('welcome') }}" class="block px-4 py-2 text-white">Home</a></li>
-                            <li><a href="{{ route('cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white">Home</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white">Services</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Pricing</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
-        
-            <!-- Content -->
-            <div class="flex flex-col justify-end items-center z-10 h-full ">
-                <!-- Content within the background video -->
-                <div class="flex flex-col justify-center items-center mb-20 z-10">
-                    <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white text-center">Embrace the road, ignite your passion.</h1>
-                    <p class="mt-4 text-lg text-gray-300 max-w-lg text-center z-10">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
-                    <div class="mt-8 flex flex-col items-center z-10 space-y-4">
-                        <a href="{{ route('client.cars') }}" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-900" style="backdrop-filter: none;" onmouseover="this.parentNode.style.backdropFilter='blur(10px)'" onmouseout="this.parentNode.style.backdropFilter='none'">
-                            <span>Cars In Stock</span>
-                        </a>
-                    </div>                    
-                </div>
-            </div>
-        </div>
-        
-
-
-        <div class="flex justify-center relative z-10">
-            <div class="text-center">
-                <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Categories</h2>
-                <div class="mb-20">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            @foreach ($categories as $category)
-                            <div class="block max-w-[18rem] rounded-lg bg-black text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('{{ $category->image }}'); background-size: cover;">
-                                <div class="p-6">
-                                    <h5 class="mb-1 text-xl font-medium leading-tight">
-                                        {{ $category->name }}
-                                    </h5>
-                                    <h6 class="mb-2 text-transparent font-medium leading-tight ">
-                                        Card subtitle
-                                    </h6>
-                                    <p class="mb-4 text-base text-transparent leading-normal">
-                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                    </p>
-                                    <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                        
-                                    </a>
-                                    <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                        view more
-                                    </a>
+            
+            <div class="flex justify-center mx-auto w-3/4 mt-10 relative z-10">
+                <div class="bg-transparent py-16">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-3xl text-center font-bold text-white mb-8">Discover Our Cars In Stock</h2>
+                        <form class="flex flex-col my-10 md:flex-row gap-3">
+                            <div class="flex">
+                                <input type="text" placeholder="Search for the tool you like"
+                                    class="w-full md:w-80 px-3 h-10 bg-transparent rounded-l border-2 border-sky-300 focus:outline-none focus:border-sky-500"
+                                    >
+                                <button type="submit" class="bg-white text-black rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
+                            </div>
+                            <select id="" name="" class="w-full bg-transparent md:w-1/5 h-10 border-2 border-sky-300 focus:outline-none focus:border-sky-300 text-bold text-gray-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider backdrop-filter backdrop-blur-lg appearance-none">
+                                <option value="All" selected="">All</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            
+                        </form>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            @foreach ($cars as $car)                                
+                            <div class="bg-white rounded-lg shadow-lg p-8">
+                                <div class="relative overflow-hidden">
+                                    <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product">
+                                    <div class="absolute inset-0 bg-black opacity-40"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <a href="" class="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">View Car</a>   
+                                    </div>
                                 </div>
-                            </div> 
-                            @endforeach 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="flex justify-center">
-            <div class="text-center">
-                <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Models</h2>
-                <div class="max-w-screen-lg mx-auto"> <!-- Add a wrapper with margin -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        @foreach($cars as $car)
-                        <div class="group relative cursor-pointer overflow-hidden bg-white p-6 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg">
-                            <figure >
-                                <img class="rounded" src="https://images.pexels.com/photos/3647693/pexels-photo-3647693.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" />
-                            </figure>
-                            <div class="card-body">
-                                <h2 class="card-title">
-                                    @if ($car->carDetail)
+                                @if ($car->carDetail)
                                     <h3 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->brand }},{{ $car->carDetail->model }}</h3>
                                 @else
                                     <p>No car details available</p>
                                 @endif
-                                </h2>
                                 <div class="flex items-center me-2 mt-2">
                                     <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{{ $car->carburant }}</span>
                                     @if ($car->avalability === 'available')
@@ -141,88 +106,27 @@
                                         <span class="bg-gray-300 text-gray-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Reserved</span>
                                     @elseif ($car->avalability === 'maintenance')
                                         <span class="bg-orange-200 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Maintenance</span>
-                                    @else 
+                                    @else
                                         <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Unknown</span>
                                     @endif
-                                </div>                                 
+                                </div>                                
                                 <div class="flex items-center justify-between mt-4">
-                                    @if ($car->category)
-                                    <span class="text-gray-900 font-bold text-lg"><a class="">Category : {{ $car->category->name }}</a></span>                                
-                                    @else
-                                    <p>No category available</p>
-                                    @endif
                                     <span class="text-gray-900 font-bold text-lg">{{ $car->price_per_day }} MAD/Day</span>
+                                    <button href="" class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Reserve</button>
                                 </div>
-                            </div>
+                            </div>                            
+                            @endforeach
                         </div>
-                        @endforeach
+                
                     </div>
                 </div>
             </div>
+            
         </div>
         
-        <div class="container my-24 mx-auto md:px-6 xl:px-24" style="width: 75%; margin-left: auto; margin-right: auto;">
-            <section class="mb-32 z-50">
-                <h2 class="mb-6 text-center text-3xl font-bold">Frequently asked questions</h2>
-                <div class="relative z-10"> <!-- Ensure this div wraps around the FAQ section -->
-                    <div id="accordionFlushExample">
-                        <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200">
-                            <h2 class="mb-0" id="flush-headingTwo">
-                                <button class="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
-                                    type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseTwo"
-                                    aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Non cupidatat skateboard dolor brunch?
-                                    <span class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="!visible hidden border-0" data-te-collapse-item
-                                aria-labelledby="flush-headingTwo" data-te-parent="#accordionFlushExample">
-                                <div class="py-4 px-5 text-neutral-500 dark:text-neutral-300">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                                    laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                                    coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                    anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                                    occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                                    heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200">
-                            <h2 class="mb-0" id="flush-headingThree">
-                                <button class="group relative flex w-full items-center rounded-none border-0 py-4 px-5 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:text-primary-400"
-                                    type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapseThree"
-                                    aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Praesentium voluptatibus temporibus consequatur non aspernatur?
-                                    <span class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-[#8FAEE0] dark:group-[[data-te-collapse-collapsed]]:fill-[#eee]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                        </svg>
-                                    </span>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="!visible hidden rounded-b-lg" data-te-collapse-item
-                                aria-labelledby="flush-headingThree" data-te-parent="#accordionFlushExample">
-                                <div class="py-4 px-5 text-neutral-500 dark:text-neutral-300">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit optio vitae inventore autem fugiat
-                                    rerum sed laborum. Natus recusandae laboriosam quos pariatur corrupti id dignissimos deserunt,
-                                    praesentium voluptatibus temporibus consequatur non aspernatur laborum rerum nemo dolorem
-                                    libero inventore provident exercitationem sunt totam aperiam. Facere sunt quos commodi
-                                    obcaecati temporibus alias amet! Quam quisquam laboriosam quae repellendus non cum adipisci
-                                    odio?
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-            </section>
-        </div>
+
+
+        
             
         <footer class="mt-20 bg-transparent dark:bg-transparent">
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">

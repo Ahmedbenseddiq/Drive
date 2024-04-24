@@ -14,8 +14,9 @@ class ClientController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
+        $categories = Category::take(3)->get();
         $cars = car::all();
-        return view('client.home', ['cars' => $cars]);
+        return view('client.home', compact('categories', 'cars'));
     }
 
 
@@ -23,6 +24,11 @@ class ClientController extends Controller
         $categories = Category::all();
         $cars = car::all();
         return view('client.cars', compact('categories', 'cars'));  
+    }
+
+    public function singleCar($carId){
+        $car = Car::findOrFail($carId);
+        return view('client.singleCar', compact('car'));  
     }
 
     /**

@@ -60,13 +60,19 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             
             $user = Auth::user();
             // dd($user);
-            if ($user->role === 'admin') {
-                return abort(redirect()->route('admin.home'));
-            } elseif ($user->role === 'client') {
-                return abort(redirect()->route('client.home'));
-            } elseif ($user->role === 'operator') {
-                return abort(redirect()->route('operator.home'));
+            if ($user->restriction == 1) {
+                // dd($user->restriction);
+                return abort(redirect()->route('restricted'));
+            }else{
+                if ($user->role === 'admin') {
+                    return abort(redirect()->route('admin.home'));
+                } elseif ($user->role === 'client') {
+                    return abort(redirect()->route('client.home'));
+                } elseif ($user->role === 'operator') {
+                    return abort(redirect()->route('operator.home'));
+                }
             }
+           
         }
 
         return abort(redirect()->route('loginpage')->with('error', 'Incorrect email or password. Please try again.'));
