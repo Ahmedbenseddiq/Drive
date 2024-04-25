@@ -26,7 +26,7 @@ class ClientController extends Controller
         $cars = car::all();
         $clientId = Auth::user()->clients()->first()->id;
         // dd($clientId);
-        return view('client.cars', compact('categories', 'cars'));  
+        return view('client.cars', compact('categories', 'cars', 'clientId'));  
     }
 
     public function singleCar($carId){
