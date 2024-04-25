@@ -1,4 +1,4 @@
-@extends('layout.layout')
+    @extends('layout.layout')
 
 
 @section('content')
@@ -28,13 +28,8 @@
                     <!-- Profile dropdown menu -->
                     <div class="hidden  absolute top-full left-0 w-48 ms-20 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="profile-dropdown">
                         <ul class="py-1">
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="block px-4 py-2 text-white">Login</button>
-                                </form>
-                            </li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Register</a></li>
+                            <li><a href="{{ route('loginpage') }}" class="block px-4 py-2 text-white">Login</a></li>
+                            <li><a href="{{ route('registerpage') }}" class="block px-4 py-2 text-white">Register</a></li>
                         </ul>
                     </div>
         

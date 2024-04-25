@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\car;
 use App\Models\client;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
-use App\Models\car;
-use App\Models\Category;
 
 class ClientController extends Controller
 {
@@ -23,6 +24,8 @@ class ClientController extends Controller
     public function cars(){
         $categories = Category::all();
         $cars = car::all();
+        $clientId = Auth::user()->clients()->first()->id;
+        // dd($clientId);
         return view('client.cars', compact('categories', 'cars'));  
     }
 

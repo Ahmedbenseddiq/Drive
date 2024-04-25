@@ -88,7 +88,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     public function logout()
     {
         Auth::logout();
-        return abort(redirect()->route('loginpage')->with('success', 'You have been logged out.'));
+        return abort(redirect()->route('welcome')->with('success', 'You have been logged out.'));
     }
         
 }
