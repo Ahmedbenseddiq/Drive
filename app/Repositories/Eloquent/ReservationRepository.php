@@ -22,15 +22,16 @@ class ReservationRepository implements ReservationRepositoryInterface
 
      public function store(ReservationDto $reservationDto, car $car){
         $data = $this->getarray() + ['car_id' => $car->id];
+      //   dd($data);
         $reservation = Reservation::create($data);
-        return abort(redirect()->route('operator.reservations'));   
+        return abort(redirect()->route('client.home'));   
      }
 
      public function getarray(){
         return [
             'start_date' => request('start_date'),
             'end_date' => request('end_date'),
-            'car_id' => request('car_id'),
+            // 'car_id' => request('car_id'),
             'client_id' => request('client_id'),
         ];
      }

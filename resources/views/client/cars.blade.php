@@ -55,8 +55,8 @@
                     <!-- Main menu -->
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
-                            <li><a href="#" class="block px-4 py-2 text-white">Home</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Services</a></li>
+                            <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
+                            <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Pricing</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
                         </ul>
@@ -70,7 +70,7 @@
                         <h2 class="text-3xl text-center font-bold text-white mb-8">Discover Our Cars In Stock</h2>
                         <form class="flex flex-col my-10 md:flex-row gap-3">
                             <div class="flex">
-                                <input type="text" placeholder="Search for the tool you like"
+                                <input type="text" placeholder="Search for cars by brand or model"
                                     class="w-full md:w-80 px-3 h-10 bg-transparent rounded-l border-2 border-sky-300 focus:outline-none focus:border-sky-500"
                                     >
                                 <button type="submit" class="bg-white text-black rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>

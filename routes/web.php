@@ -36,7 +36,14 @@ Route::get('/restricted', [AuthController::class, 'restricted'])->name('restrict
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+}); 
 
+Route::middleware(['auth','role:admin'])->group(function (){
+    Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
+    Route::put('admin/{userId}', [AdminController::class, 'restriction'])->name('restriction');
+});
+
+Route::middleware(['auth','role:operator'])->group(function (){
     Route::get('operator/home', [OperatorController::class, 'index'])->name('operator.home');
 
     Route::get('operator/category/categories', [CategoryController::class, 'index'])->name('operator.categories');
@@ -56,16 +63,11 @@ Route::middleware('auth')->group(function () {
     Route::get('operator/car/cars', [CarController::class, 'index'])->name('operator.cars');
     Route::get('operator/car/addCar', [CarController::class, 'create'])->name('operator.addCar');
     Route::post('operator/car/storeCar', [CarController::class, 'store'])->name('operator.storeCar');
+});
 
-
+Route::middleware(['auth','role:client'])->group(function (){
     Route::get('client/home', [ClientController::class, 'index'])->name('client.home');
     Route::get('client/cars', [ClientController::class, 'cars'])->name('client.cars');
     Route::get('client/singleCar/{carId}', [ClientController::class, 'singleCar'])->name('client.singleCar');
     Route::post('client/reservation/{carId}', [ReservationController::class, 'store'])->name('client.reservation');
-
-
-    Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
-    Route::put('admin/{userId}', [AdminController::class, 'restriction'])->name('restriction');
-
-
-}); 
+});
