@@ -9,6 +9,7 @@ use App\Http\Controllers\CarInfoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\guestController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::get('client/home', [ClientController::class, 'index'])->name('client.home');
     Route::get('client/cars', [ClientController::class, 'cars'])->name('client.cars');
     Route::get('client/singleCar/{carId}', [ClientController::class, 'singleCar'])->name('client.singleCar');
+    Route::post('client/reservation/{carId}', [ReservationController::class, 'store'])->name('client.reservation');
 
 
     Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');

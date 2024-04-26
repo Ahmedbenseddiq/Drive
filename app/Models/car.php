@@ -12,17 +12,17 @@ class car extends Model
     protected $table = 'cars';
 
     protected $fillable = [
-        'price',
+        'price_per_day',
         'availability',
         'registration_number',
-        'model_id',
+        'carDetail_id',
         'category_id',
         'operator_id',
     ];
 
     public function carDetail()
     {
-        return $this->belongsTo(CarDetail::class);
+        return $this->belongsTo(CarDetail::class,'carDetail_id');
     }
 
 

@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\car;
+use App\DTO\ReservationDto;
 use App\Models\reservation;
 use App\Http\Requests\StorereservationRequest;
 use App\Http\Requests\UpdatereservationRequest;
+use App\Repositories\Eloquent\ReservationRepository;
 
 class ReservationController extends Controller
 {
+
+    public function __construct(public ReservationRepository $repository){
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -27,9 +35,10 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorereservationRequest $request)
+    public function store(StorereservationRequest $request,car $carId)
     {
-        //
+        $ReservationDto = ReservationDto::fromRequest($request);
+        $this->repository->store($ReservationDto,$carId);
     }
 
     /**

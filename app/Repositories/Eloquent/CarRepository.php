@@ -22,13 +22,13 @@ class CarRepository implements CarRepositoryInterface
 
      public function store(CarDto $carDto){
         $car = car::create($this->getarray($carDto));
-        return abort(redirect()->view('operator.cars'));
+        return abort(redirect()->route('operator.cars'));
      }
 
      
      private function getarray(CarDto $carDto){
       return [
-          'registration_number	' => $carDto->registration_number,
+          'registration_number' => $carDto->registration_number,
           'price_per_day' => $carDto->price_per_day,
           'avalability' => $carDto->avalability,
           'carburant' => $carDto->carburant,

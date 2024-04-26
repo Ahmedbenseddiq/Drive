@@ -22,7 +22,7 @@ class carDto
 
     public static function fromRequest(StorecarRequest | UpdatecarRequest $request): carDto
     {
-        dd($request);
+        // dd($request);
         $registration_number = $request->validated()['registration_number'];
         $price_per_day = $request->validated()['price_per_day'];
         $avalability = $request->validated()['avalability'];

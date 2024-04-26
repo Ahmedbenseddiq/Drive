@@ -31,7 +31,8 @@ class ClientController extends Controller
 
     public function singleCar($carId){
         $car = Car::findOrFail($carId);
-        return view('client.singleCar', compact('car'));  
+        $clientId = Auth::user()->clients()->first()->id;
+        return view('client.singleCar', compact('car', 'clientId'));      
     }
 
     /**

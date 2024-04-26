@@ -210,7 +210,7 @@
                                     </td>
                                     <td class="px-4 py-3">
                                         @if ($car->carDetail)
-                                            <h3 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->brand }},{{ $car->carDetail->model }}</h3>
+                                            <h3>{{ $car->carDetail->brand }},{{ $car->carDetail->model }}</h3>
                                         @else
                                             <p>No car details available</p>
                                         @endif                                    

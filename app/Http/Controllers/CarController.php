@@ -23,7 +23,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::with('carDetail')->get();
         // dd($cars);
         return view('operator.car.cars', ['cars' => $cars]);
     }

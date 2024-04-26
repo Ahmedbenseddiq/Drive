@@ -10,7 +10,7 @@
 
     <section class="bg-transparent-50 dark:bg-transparent">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="" class="flex items-center z-10 mb-6 text-2xl font-semibold text-tra dark:text-white">
+            <a href="{{ route('welcome') }}" class="flex items-center z-10 mb-6 text-2xl font-semibold text-tra dark:text-white">
                 <img class="w-56 mr-2 z-10" src="./src/images/logo.png" alt="logo">
                     
             </a>
