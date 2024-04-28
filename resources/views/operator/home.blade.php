@@ -103,10 +103,10 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total clients
+                                MY clients
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                6389
+                                {{ $clientCount }}
                             </p>
                         </div>
                     </div>
@@ -119,10 +119,10 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Account balance
+                                My categories
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 46,760.89
+                                {{ $categoryCount }}
                             </p>
                         </div>
                     </div>
@@ -135,10 +135,10 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total income
+                                My cars
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 15,480.00
+                                {{ $carCount }}
                             </p>
                         </div>
                     </div>
@@ -151,10 +151,10 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total expenses
+                                My Reservation
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 10,251.00
+                                {{ $reservationCount }}
                             </p>
                         </div>
                     </div>
@@ -165,61 +165,45 @@
                         <table class="w-full whitespace-no-wrap">
                             <thead>
                                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                    <th class="px-4 py-3">Full Name</th>
-                                    <th class="px-4 py-3">Email</th>
-                                    <th class="px-4 py-3">CIN</th>
-                                    <th class="px-4 py-3">Driving Licence Number</th>
-                                    <th class="px-4 py-3">Adresse</th>
-                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Reservation Id</th>
+                                    <th class="px-4 py-3">Start Date</th>
+                                    <th class="px-4 py-3">End Date</th>
+                                    <th class="px-4 py-3">Client</th>
+                                    <th class="px-4 py-3">Car</th>
+                                    <th class="px-4 py-3">Payment</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                @foreach ($reservations as $reservation)
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3">
-                                        hans burg
-                                        </div>
+                                        {{ $reservation->id }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        abcd@abcd.mail.efg
+                                        {{ $reservation->start_date }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        f35484431
+                                        {{ $reservation->end_date }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        1215852085
+                                        {{ $reservation->id }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        37 Musse Hill Road
+                                        {{ $reservation->car_id }}
                                     </td>
                                     <td class="px-4 py-3 text-xs">
-                                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                            Active
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-gray-400">
-                                    <td class="px-4 py-3">
-                                        romina gillan
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        xyz@abc.de
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        f35454444
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        1214547555
-                                    </td>
-                                    <td class="px-4 py-3 text-sm">
-                                        21 Seafield Terrace
-                                    </td>
-                                    <td class="px-4 py-3 text-xs">
+                                        @if($reservation->status == 0)
                                         <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100">
-                                            Disabled
+                                            Not Paid
                                         </span>
+                                    @elseif($reservation->status == 1)
+                                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                            Paid
+                                        </span>
+                                    @endif
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

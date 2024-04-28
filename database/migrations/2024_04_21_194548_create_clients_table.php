@@ -15,11 +15,11 @@ return new class extends Migration
         $table->id();
         $table->unsignedBigInteger('user_id');
         $table->foreign('user_id')->references('id')->on('users');
-        $table->integer('points')->default(0);
-        $table->string('cin')->nullable()->unique();
-        $table->string('driving_licence_number')->nullable()->unique();
-        $table->string('city')->nullable();
-        $table->string('address')->nullable();
+        // $table->integer('points')->default(0);
+        // $table->string('cin')->nullable()->unique();
+        // $table->string('driving_licence_number')->nullable()->unique();
+        // $table->string('city')->nullable();
+        // $table->string('address')->nullable();
         $table->timestamps();
     });
 }

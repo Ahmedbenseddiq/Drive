@@ -26,6 +26,7 @@ class StorecarRequest extends FormRequest
             'price_per_day' => 'required',
             'avalability' => 'required',
             'carburant' => 'required',
+            'image' => 'required',
             'carDetail_id' => 'required',
             'category_id' => 'required',
             'operator_id' => 'required',

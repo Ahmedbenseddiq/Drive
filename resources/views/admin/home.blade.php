@@ -86,7 +86,7 @@
                 </h2>
                 <!-- Cards -->
                 <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                    <!-- Card -->
+                    <!-- Card for Total Clients -->
                     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                         <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -98,11 +98,12 @@
                                 Total clients
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                6389
+                                {{ $clientsCount }}
                             </p>
                         </div>
                     </div>
-                    <!-- Card -->
+                    
+                    <!-- Card for Total Operators -->
                     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                         <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -111,30 +112,32 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Account balance
+                                Total operators
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 46,760.89
+                                {{ $operatorsCount }}
                             </p>
                         </div>
                     </div>
-                    <!-- Card -->
+                    
+                    <!-- Card for Total Cars -->
                     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                         <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 2a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1H3zm8 4a1 1 0 00-1 1v5a1 1 0 102 0V7a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M3 2a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1H3zm8 4a1 1 0 00-1 1v5a1 1 0 102 0V7a1 1 0 00-1-1zm0 6a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total income
+                                Total cars
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 15,480.00
+                                {{ $totalCars }}
                             </p>
                         </div>
                     </div>
-                    <!-- Card -->
+                    
+                    <!-- Card for Total Reservations -->
                     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                         <div class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -143,14 +146,15 @@
                         </div>
                         <div>
                             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total expenses
+                                Total reservations
                             </p>
                             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 10,251.00
+                                {{ $totalReservations }}
                             </p>
                         </div>
                     </div>
                 </div>
+                
                 <!-- New Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-3/4 mx-auto overflow-x-auto">

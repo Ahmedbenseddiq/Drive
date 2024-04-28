@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\car;
 use App\Models\User;
 use App\Models\admin;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreadminRequest;
 use App\Http\Requests\UpdateadminRequest;
@@ -17,8 +19,14 @@ class AdminController extends Controller
     {
         $users = User::where('role', 'client')
         ->orWhere('role', 'operator')
-        ->get();        
-        return view('admin.home', ['users' => $users]);
+        ->get();       
+        
+        $clientsCount = User::where('role', 'client')->count();
+        $operatorsCount = User::where('role', 'operator')->count();
+        $totalCars = car::count();
+        $totalReservations = reservation::count();
+
+    return view('admin.home', compact('users', 'clientsCount', 'operatorsCount','totalCars', 'totalReservations'));
     }
 
 

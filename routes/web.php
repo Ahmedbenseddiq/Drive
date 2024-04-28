@@ -63,6 +63,10 @@ Route::middleware(['auth','role:operator'])->group(function (){
     Route::get('operator/car/cars', [CarController::class, 'index'])->name('operator.cars');
     Route::get('operator/car/addCar', [CarController::class, 'create'])->name('operator.addCar');
     Route::post('operator/car/storeCar', [CarController::class, 'store'])->name('operator.storeCar');
+    Route::get('operator/car/editCar/{car}', [CarController::class, 'edit'])->name('operator.editCar');
+    Route::put('operator/car/updateCar/{car}', [CarController::class, 'update'])->name('operator.updateCar');
+    Route::delete('operator/car/destroycar/{car}', [carController::class, 'destroy'])->name('operator.destroycar');
+
 });
 
 Route::middleware(['auth','role:client'])->group(function (){
@@ -70,4 +74,5 @@ Route::middleware(['auth','role:client'])->group(function (){
     Route::get('client/cars', [ClientController::class, 'cars'])->name('client.cars');
     Route::get('client/singleCar/{carId}', [ClientController::class, 'singleCar'])->name('client.singleCar');
     Route::post('client/reservation/{carId}', [ReservationController::class, 'store'])->name('client.reservation');
+    Route::get('client/cars/{category_id}', [ClientController::class, 'filterByCategory'])->name('client.filter');
 });

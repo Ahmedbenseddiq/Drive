@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\car;
+use App\Models\User;
+use App\Models\category;
 use App\Models\operator;
+use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreoperatorRequest;
 use App\Http\Requests\UpdateoperatorRequest;
 
@@ -13,7 +18,25 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view('operator.home');
+        $operatorId = Auth::user()->operators()->first()->id;
+
+        $reservations = Reservation::whereHas('car', function ($query) use ($operatorId) {
+            $query->where('operator_id', $operatorId);
+        })->get();
+
+        $reservationCount = $reservations->count();
+        $carCount = car::where('operator_id', $operatorId)->count();
+
+        $categoryCount = category::whereHas('cars', function ($query) use ($operatorId) {
+            $query->where('operator_id', $operatorId);
+        })->count();
+
+        $clientCount = Reservation::whereHas('car', function ($query) use ($operatorId) {
+            $query->where('operator_id', $operatorId);
+        })->distinct('client_id')->count('client_id');
+
+        // dd($reservations);
+        return view('operator.home', compact('reservations', 'reservationCount', 'carCount', 'categoryCount', 'clientCount'));
     }
 
     /**

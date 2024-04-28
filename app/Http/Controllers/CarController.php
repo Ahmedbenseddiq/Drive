@@ -65,15 +65,21 @@ class CarController extends Controller
      */
     public function edit(car $car)
     {
-        //
+        $operatorId = Auth::user()->operators()->first()->id;
+        $categories = Category::all();
+        $carDetails = CarDetail::all();
+        
+        return view('operator.car.editCar', compact('car', 'operatorId', 'categories', 'carDetails'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdatecarRequest $request, car $car)
     {
-        //
+        // dd($request);
+        $carDto = carDto::fromRequest($request);
+        $this->repository->update($car, $carDto);
     }
 
     /**

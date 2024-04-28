@@ -15,6 +15,8 @@ class car extends Model
         'price_per_day',
         'availability',
         'registration_number',
+        'carburant',
+        'image',
         'carDetail_id',
         'category_id',
         'operator_id',

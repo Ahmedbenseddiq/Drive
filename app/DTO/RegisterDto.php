@@ -12,7 +12,8 @@ class RegisterDto
         public string $name,
         public string $email,
         public string $password,
-        public string $role,){}
+        public string $role,
+        public string $image,){}
 
 
     public static function fromRequest(RegisterRequest $request): RegisterDto
@@ -22,7 +23,8 @@ class RegisterDto
         $email = $request->validated()['email'];
         $password = Hash::make($request->validated()['password']);
         $role = $request->validated()['role'];
+        $image = $request->validated()['image'];
     
-        return new self($name, $email, $password, $role);
+        return new self($name, $email, $password, $role, $image);
     }
 }   

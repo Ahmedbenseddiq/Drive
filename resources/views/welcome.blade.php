@@ -61,12 +61,12 @@
             </nav>
         
             <!-- Content -->
-            <div class="flex flex-col justify-end items-center z-10 h-full ">
-                <!-- Content within the background video -->
-                <div class="flex flex-col justify-center items-center mb-20 z-10">
-                    <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white text-center">Embrace the road, ignite your passion.</h1>
-                    <p class="mt-4 text-lg text-gray-300 max-w-lg text-center z-10">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
-                    <div class="mt-8 flex flex-col items-center z-10 space-y-4">
+            <div class="flex flex-col justify-center items-center z-10 mt-64">
+                 <!-- Content within the background video -->
+                <div class="text-center z-10">
+                    <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white ">Embrace the road, ignite your passion.</h1>
+                    <p class="mt-4 mx-auto text-lg text-gray-300 max-w-lg">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
+                    <div class="mt-8 flex flex-col items-center space-y-4">
                         <a href="{{ route('client.cars') }}" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-900" style="backdrop-filter: none;" onmouseover="this.parentNode.style.backdropFilter='blur(10px)'" onmouseout="this.parentNode.style.backdropFilter='none'">
                             <span>Cars In Stock</span>
                         </a>

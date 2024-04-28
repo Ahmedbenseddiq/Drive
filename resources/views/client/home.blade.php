@@ -52,33 +52,31 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                         </svg>
                     </button>
-                    <!-- Main menu -->
+                    <!-- Main menu -->w
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
                             <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
                             <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Categories</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
+                            <li><a href="#" class="block px-4 py-2 text-white">Reservation History</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         
             <!-- Content -->
-            <div class="flex flex-col justify-end items-center z-10 h-full ">
+            <div class="flex flex-col justify-center items-center z-10 mt-64">
                 <!-- Content within the background video -->
-                <div class="flex flex-col justify-center items-center mb-20 z-10">
-                    <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white text-center">Embrace the road, ignite your passion.</h1>
-                    <p class="mt-4 text-lg text-gray-300 max-w-lg text-center z-10">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
-                    <div class="mt-8 flex flex-col items-center z-10 space-y-4">
+                <div class="text-center z-10">
+                    <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight z-10 leading-none text-white">Embrace the road, ignite your passion.</h1>
+                    <p class="mt-4 mx-auto text-lg text-gray-300 max-w-lg">Embark on the journey of a lifetime, where every turn fuels your passion for the road ahead..</p>
+                    <div class="mt-8 flex flex-col items-center space-y-4">
                         <a href="{{ route('client.cars') }}" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:focus:ring-gray-900" style="backdrop-filter: none;" onmouseover="this.parentNode.style.backdropFilter='blur(10px)'" onmouseout="this.parentNode.style.backdropFilter='none'">
                             <span>Cars In Stock</span>
                         </a>
-                    </div>
-                    
-                    
-            </div>
-            </div>
+                    </div>                    
+                </div>
+           </div>
         </div>
         
 

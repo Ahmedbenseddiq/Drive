@@ -75,8 +75,8 @@
                                     >
                                 <button type="submit" class="bg-white text-black rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
                             </div>
-                            <select id="" name="" class="w-full bg-transparent md:w-1/5 h-10 border-2 border-sky-300 focus:outline-none focus:border-sky-300 text-bold text-gray-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider backdrop-filter backdrop-blur-lg appearance-none">
-                                <option value="All" selected="">All</option>
+                            <select name="category_id" class="w-full bg-transparent md:w-1/5 h-10 border-2 border-sky-300 focus:outline-none focus:border-sky-300 text-bold text-gray-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider backdrop-filter backdrop-blur-lg appearance-none">
+                                <option value="All" selected>All</option>
                                 @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach

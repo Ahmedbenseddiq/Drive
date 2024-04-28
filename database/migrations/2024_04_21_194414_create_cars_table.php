@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->integer('price_per_day');
             $table->enum('avalability', ['available', 'reserved', 'maintenance']);  
             $table->enum('carburant', ['diesel', 'fuel', 'electric', 'hybrid']);
+            $table->string('image');
             $table->unsignedBigInteger('carDetail_id');
             $table->foreign('carDetail_id')->references('id')->on('carDetails');
             $table->unsignedBigInteger('category_id');

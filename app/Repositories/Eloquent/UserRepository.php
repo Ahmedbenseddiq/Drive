@@ -14,20 +14,18 @@ use TimWassenburg\RepositoryGenerator\Repository\BaseRepository;
 /**
  * Class UserRepository.
  */
-class UserRepository extends BaseRepository implements UserRepositoryInterface
+class UserRepository  implements UserRepositoryInterface
 {
     /**
      * UserRepository constructor.
      *
      * @param User $model
      */
-    public function __construct(User $model)
-    {
-        parent::__construct($model);
-    }
+
 
     public function register(RegisterDto $registerDto){
 
+        
         $user = User::create($this->getarray($registerDto));
         // dd($user);
 
@@ -46,7 +44,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             'name' => $registerDto->name,
             'email' => $registerDto->email,
             'password' => $registerDto->password,
-            'role' => $registerDto->role
+            'role' => $registerDto->role,
+            'image' =>$registerDto->image,
         ];
     }
 

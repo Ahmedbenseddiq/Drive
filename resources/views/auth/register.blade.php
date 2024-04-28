@@ -23,20 +23,29 @@
                         @csrf
                     
                         <!-- Personal Information Section -->
-                        <div class="mt-2">
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
-                            <input type="text" name="name" id="name" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe" required>
+                        <div class="flex flex-wrap -mx-2">
+                            <div class="w-full md:w-1/2 px-2">
+                                <div class="mt-2">
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
+                                    <input type="text" name="name" id="name" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe" required>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                                    <input type="email" name="email" id="email" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 px-2">
+                                <div class="mt-2">
+                                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                    <input type="password" name="password" id="password" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" required>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
+                                    <input type="file" accept="image/*" name="image" id="image" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Upload Image" required>
+                                </div>
+                            </div>
                         </div>
-                    
-                        <div class="mt-2">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" name="email" id="email" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required>
-                        </div>
-                    
-                        <div class="mt-2">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" class="w-full bg-blue-400 bg-opacity-25 border border-transparent text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" required>
-                        </div>
+                        
                     
                         <!-- Role Selection Section -->
                         <div class="mt-4 flex items-center justify-center">
@@ -46,7 +55,7 @@
                                 <input type="radio" name="role" id="operator" value="operator" class="hidden" onchange="updateRole()">
                                 <label for="operator" class="text-sm px-2 py-1 font-medium rounded-md cursor-pointer border border-gray-300 select-none" style="background-color: transparent; color: inherit;">Operator</label>
                             </div>
-                        </div>
+                        </div>                        
                     
                         <!-- Submit Button -->
                         <div class="flex items-center justify-center mt-4">
