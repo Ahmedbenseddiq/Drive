@@ -57,7 +57,6 @@
                         <ul class="py-1">
                             <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
                             <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
-                            <li><a href="{{ route('client.reservationHistory') }}" class="block px-4 py-2 text-white">Reservation History</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,7 +71,7 @@
                             @foreach ($cars as $car)                                
                             <div class="bg-white rounded-lg shadow-lg p-8">
                                 <div class="relative overflow-hidden">
-                                    <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product">
+                                    <img class="object-cover w-full h-full" src="{{ asset('assets/uploads/' . $car->image) }}" alt="Product">
                                     <div class="absolute inset-0 bg-black opacity-40"></div>
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <a href="" class="bg-white text-gray-900 py-2 px-6 rounded-full font-bold hover:bg-gray-300">View Car</a>   

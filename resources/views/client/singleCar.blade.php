@@ -57,8 +57,6 @@
                 <ul class="py-1">
                     <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
                     <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-white">Categories</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-white">Reservation History</a></li>
                 </ul>
             </div>
         </div>
@@ -70,7 +68,7 @@
             <div class="flex flex-col md:flex-row -mx-4">
                 <div class="md:flex-1 px-4">
                     <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                        <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image">
+                        <img class="w-full h-full object-cover" src="{{ asset('assets/uploads/' . $car->image) }}" alt="Product Image">
                     </div>
                     <div class="flex -mx-2 mb-4">
                         <div class="w-1/2 px-2">
@@ -126,12 +124,12 @@
                 </div> 
                 <div class="md:flex-1 px-4">
                     @if ($car->carDetail)
-                        <h2 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->brand }}</h2>
+                        <h2 class="text-xl font-bold text-white mt-4">{{ $car->carDetail->brand }}</h2>
                     @else
                         <p>No car details available</p>
                     @endif                    
                     @if ($car->carDetail)
-                        <h2 class="text-xl font-bold text-gray-900 mt-4">{{ $car->carDetail->model }}</h2>
+                        <h2 class="text-xl font-bold text-white mt-4">{{ $car->carDetail->model }}</h2>
                     @else
                         <p>No car details available</p>
                     @endif
