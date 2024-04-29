@@ -28,11 +28,13 @@ Route::get('/cars', [guestController::class, 'cars'])->name('cars');
 
 
 
-Route::get('/login', [AuthController::class, 'loginpage'])->name('loginpage');
-Route::get('/register', [AuthController::class, 'registerpage'])->name('registerpage');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/restricted', [AuthController::class, 'restricted'])->name('restricted');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'loginpage'])->name('loginpage');
+    Route::get('/register', [AuthController::class, 'registerpage'])->name('registerpage');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/restricted', [AuthController::class, 'restricted'])->name('restricted');
+});
 
 
 Route::middleware('auth')->group(function () {

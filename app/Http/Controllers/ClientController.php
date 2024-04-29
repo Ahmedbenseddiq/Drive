@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\car;
 use App\Models\client;
 use App\Models\Category;
+use App\Models\Reservation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
-use App\Models\Reservation;
 
 class ClientController extends Controller
 {
@@ -43,6 +44,31 @@ class ClientController extends Controller
         $NotPaidReservations = Reservation::where('status', 0)->get();
 
         return view('client.reservationHistory', compact('PaidReservations','NotPaidReservations'));
+    }
+
+
+    public function search(Request $request)
+    {
+        $query = $request->input('search'); 
+        $type = $request->input('post_type'); 
+    
+        $postsQuery = car::query();
+        if ($query) {
+            $postsQuery->where('title', 'like', "%$query%")
+                       ->orWhereHas('category', function ($categoryQuery) use ($query) {
+                            $categoryQuery->where('name', 'like', "%$query%");
+                        })
+                       ->orWhereHas('tags', function ($tagQuery) use ($query) {
+                            $tagQuery->where('name', 'like', "%$query%");
+                        });
+        }
+        if ($type) {
+            $postsQuery->where('type', $type);
+        }
+    
+        $posts = $postsQuery->with('user', 'category', 'tags')->get();
+    
+        return response()->json($posts);
     }
 
     /**
