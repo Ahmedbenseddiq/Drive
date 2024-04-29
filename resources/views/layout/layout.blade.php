@@ -30,5 +30,7 @@
             });
         </script>
         <script src="{{ asset('src/js/likes.js')}}"></script>
+       
+
     </body>
 </html>    

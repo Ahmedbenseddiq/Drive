@@ -81,5 +81,4 @@ Route::middleware(['auth','role:client'])->group(function (){
     Route::get('client/reservationHistory', [ClientController::class, 'reservation'])->name('client.reservationHistory');
     Route::post('client/{car}/like', [LikeController::class, 'like'])->name('client.like');
     Route::delete('client/{car}/unlike', [LikeController::class, 'unlike'])->name('client.unlike');
-
 });

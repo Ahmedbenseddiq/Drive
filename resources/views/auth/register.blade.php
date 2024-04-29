@@ -19,7 +19,7 @@
                    
 
                 
-                    <form class="space-y-4 md:space-y-6 z-10" action="{{ route('register') }}" method="POST">
+                    <form class="space-y-4 md:space-y-6 z-10" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                     
                         <!-- Personal Information Section -->

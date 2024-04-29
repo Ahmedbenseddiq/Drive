@@ -55,10 +55,9 @@
                     <!-- Main menu -->
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
-                            <li><a href="#" class="block px-4 py-2 text-white">Home</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Services</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Pricing</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
+                            <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
+                            <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
+                            <li><a href="{{ route('client.reservationHistory') }}" class="block px-4 py-2 text-white">Reservation History</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,21 +67,7 @@
                 <div class="bg-transparent py-16">
                     <div class="container mx-auto px-4">
                         <h2 class="text-3xl text-center font-bold text-white mb-8">Discover Our Cars In Stock</h2>
-                        <form class="flex flex-col my-10 md:flex-row gap-3">
-                            <div class="flex">
-                                <input type="text" placeholder="Search for the tool you like"
-                                    class="w-full md:w-80 px-3 h-10 bg-transparent rounded-l border-2 border-sky-300 focus:outline-none focus:border-sky-500"
-                                    >
-                                <button type="submit" class="bg-white text-black rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
-                            </div>
-                            <select id="" name="" class="w-full bg-transparent md:w-1/5 h-10 border-2 border-sky-300 focus:outline-none focus:border-sky-300 text-bold text-gray-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider backdrop-filter backdrop-blur-lg appearance-none">
-                                <option value="All" selected="">All</option>
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                            
-                        </form>
+                        
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             @foreach ($cars as $car)                                
                             <div class="bg-white rounded-lg shadow-lg p-8">

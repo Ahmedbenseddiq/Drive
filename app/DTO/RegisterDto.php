@@ -2,29 +2,30 @@
 
 namespace App\DTO;
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 
 class RegisterDto
 {
- 
     public function __construct(
         public string $name,
         public string $email,
         public string $password,
         public string $role,
-        public string $image,){}
-
+        public UploadedFile $image // Change type to UploadedFile
+    ) {}
 
     public static function fromRequest(RegisterRequest $request): RegisterDto
     {
-        // dd($request);
-        $name = $request->validated()['name'];
-        $email = $request->validated()['email'];
-        $password = Hash::make($request->validated()['password']);
-        $role = $request->validated()['role'];
-        $image = $request->validated()['image'];
-    
+        $validatedData = $request->validated();
+
+        $name = $validatedData['name'];
+        $email = $validatedData['email'];
+        $password = Hash::make($validatedData['password']);
+        $role = $validatedData['role'];
+        $image = $request->file('image'); // Access the uploaded file using file() method
+
         return new self($name, $email, $password, $role, $image);
     }
-}   
+}

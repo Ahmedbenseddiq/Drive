@@ -23,31 +23,38 @@ class UserRepository  implements UserRepositoryInterface
      */
 
 
-    public function register(RegisterDto $registerDto){
+     public function register(RegisterDto $registerDto){
 
-        
-        $user = User::create($this->getarray($registerDto));
-        // dd($user);
-
+        $fileName = pathinfo($registerDto->image->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = $registerDto->image->getClientOriginalExtension();
+        $fullFileName = $fileName . "-" . time() . '.' . $extension;
+    
+        $destinationPath = public_path('assets/uploads/');
+    
+        $registerDto->image->move($destinationPath, $fullFileName);
+    
+        $insert  = $this->getArray($registerDto) + ['image' => $fullFileName];
+    
+        $user = User::create($insert);
+    
         if ($registerDto->role === 'client') {
             $client = Client::create(['user_id' => $user->id]); 
-            return abort(redirect()->route('loginpage'));
         } else if ($registerDto->role === 'operator') {
             $operator = Operator::create(['user_id' => $user->id]);
-            return abort(redirect()->route('loginpage'));
         } 
-
+    
+        return abort(redirect()->route('loginpage'));
     }
-
-    private function getarray(RegisterDto $registerDto){
+    
+    private function getArray(RegisterDto $registerDto){
         return [
             'name' => $registerDto->name,
             'email' => $registerDto->email,
-            'password' => $registerDto->password,
+            'password' =>$registerDto->password,
             'role' => $registerDto->role,
-            'image' =>$registerDto->image,
         ];
     }
+    
 
 
     public function login(loginDto $loginDto){
@@ -74,7 +81,7 @@ class UserRepository  implements UserRepositoryInterface
            
         }
 
-        return abort(redirect()->route('loginpage')->with('error', 'Incorrect email or password. Please try again.'));
+        return abort(redirect()->route('loginpage')->withErrors(['error' => 'Incorrect email or password. Please try again.']));
     }
 
     public function getarr(loginDto $loginDto){

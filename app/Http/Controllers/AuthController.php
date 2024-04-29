@@ -52,7 +52,7 @@ class AuthController extends Controller
     {
         $this->repository->logout();
 
-        return redirect('/');
+        return abort(redirect('/'));
     }
     
 }
