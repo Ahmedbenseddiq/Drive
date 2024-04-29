@@ -20,16 +20,24 @@ class categoryRepository  implements categoryRepositoryInterface
 
 
 
-    public function store(categoryDto $categoryDto){
-        $category = Category::create($this->getarray($categoryDto));
-        // dd($category);
-        return abort(redirect()->route('operator.categories'));
+     public function store(CategoryDto $categoryDto){
+        $fileName = pathinfo($categoryDto->image->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = pathinfo($categoryDto->image->getClientOriginalName(), PATHINFO_EXTENSION);
+        $fullFileName = $fileName . "-" . time() . '.' . $categoryDto->image->getClientOriginalExtension();
+    
+        $destinationPath = './assets/uploads/';
+    
+        $categoryDto->image->move(public_path($destinationPath), $fullFileName);
+        $data = $this->getarray($categoryDto) + ['image' => $fullFileName];
+    
+        $category = Category::create($data);
+        
+        return abort(redirect()->route('operator.categories')->with('success', 'Category created successfully.'));
     }
 
     private function getarray(categoryDto $categoryDto){
         return [
             'name' => $categoryDto->name,
-            'image' => $categoryDto->image,
         ];
     }
 

@@ -13,7 +13,7 @@ class RegisterDto
         public string $email,
         public string $password,
         public string $role,
-        public UploadedFile $image // Change type to UploadedFile
+        public UploadedFile $image 
     ) {}
 
     public static function fromRequest(RegisterRequest $request): RegisterDto
@@ -24,7 +24,7 @@ class RegisterDto
         $email = $validatedData['email'];
         $password = Hash::make($validatedData['password']);
         $role = $validatedData['role'];
-        $image = $request->file('image'); // Access the uploaded file using file() method
+        $image = $request->file('image'); 
 
         return new self($name, $email, $password, $role, $image);
     }
