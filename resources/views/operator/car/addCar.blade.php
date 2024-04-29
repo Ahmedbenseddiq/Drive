@@ -10,7 +10,7 @@
             <div class="flex items-center justify-center p-6 sm:p-12">
                 <div class="w-full md:w-full">
                     <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Create Category</h1>
-                    <form action="{{ route('operator.storeCar') }}" method="POST">
+                    <form action="{{ route('operator.storeCar') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="mt-4">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="mt-4">
                                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-400" for="availability">Availability</label>
-                                <select id="availability" name="avalability" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-select">
+                                <select id="availability" name="availability" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-select">
                                     <option value="">Select Availability</option>
                                     <option value="available">Available</option>
                                     <option value="Reserved">Reserved</option>

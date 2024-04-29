@@ -24,7 +24,7 @@ class StorecarRequest extends FormRequest
         return [
             'registration_number' => 'required',
             'price_per_day' => 'required',
-            'avalability' => 'required',
+            'availability' => 'required',
             'carburant' => 'required',
             'image' => 'required',
             'carDetail_id' => 'required',

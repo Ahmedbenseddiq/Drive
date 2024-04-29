@@ -4,36 +4,34 @@ namespace App\DTO;
 
 use App\Http\Requests\StorecarRequest;
 use App\Http\Requests\UpdatecarRequest;
-
-
+use Illuminate\Http\UploadedFile;
 
 class carDto
 {
- 
     public function __construct(
         public string $registration_number,
         public string $price_per_day,
-        public string $avalability,
+        public string $availability,
         public string $carburant,
-        public string $image,
+        public UploadedFile $image, 
         public string $carDetail_id,
         public string $category_id,
-        public string $operator_id,){}
-
+        public string $operator_id
+    ) {}
 
     public static function fromRequest(StorecarRequest | UpdatecarRequest $request): carDto
     {
-        // dd($request);
-        $registration_number = $request->validated()['registration_number'];
-        $price_per_day = $request->validated()['price_per_day'];
-        $avalability = $request->validated()['avalability'];
-        $carburant = $request->validated()['carburant'];
-        $image = $request->validated()['image'];
-        $carDetail_id = $request->validated()['carDetail_id'];
-        $category_id = $request->validated()['category_id'];
-        $operator_id = $request->validated()['operator_id'];
+        $validatedData = $request->validated();
 
-
-        return new self($registration_number, $price_per_day, $avalability, $carburant, $image, $carDetail_id, $category_id, $operator_id);
+        return new self(
+            $validatedData['registration_number'],
+            $validatedData['price_per_day'],
+            $validatedData['availability'],
+            $validatedData['carburant'],
+            $request->file('image'), 
+            $validatedData['carDetail_id'],
+            $validatedData['category_id'],
+            $validatedData['operator_id']
+        );
     }
-}   
+}

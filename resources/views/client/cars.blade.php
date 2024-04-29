@@ -98,11 +98,11 @@
                                 <div class="flex items-center justify-between mt-2">
                                     <div class="flex items-center">
                                         <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{{ $car->carburant }}</span>
-                                        @if ($car->avalability === 'available')
+                                        @if ($car->availability === 'available')
                                             <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Available</span>
-                                        @elseif ($car->avalability === 'reserved')
+                                        @elseif ($car->availability === 'reserved')
                                             <span class="bg-gray-300 text-gray-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Reserved</span>
-                                        @elseif ($car->avalability === 'maintenance')
+                                        @elseif ($car->availability === 'maintenance')
                                             <span class="bg-orange-200 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Maintenance</span>
                                         @else
                                             <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Unknown</span>

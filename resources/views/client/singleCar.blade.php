@@ -147,11 +147,11 @@
                     <div class="mb-4">
                         <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
                         <div class="flex items-center mt-2">
-                            @if ($car->avalability === 'available')
+                            @if ($car->availability === 'available')
                                 <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Available</span>
-                            @elseif ($car->avalability === 'reserved')
+                            @elseif ($car->availability === 'reserved')
                                 <span class="bg-gray-300 text-gray-700 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Reserved</span>
-                            @elseif ($car->avalability === 'maintenance')
+                            @elseif ($car->availability === 'maintenance')
                                 <span class="bg-orange-200 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Maintenance</span>
                             @else
                                 <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">Unknown</span>

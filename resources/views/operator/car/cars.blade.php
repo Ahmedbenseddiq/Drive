@@ -10,7 +10,7 @@
             <ul class="mt-6">
                 <li class="relative px-6 py-3">
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('operator.home') }}">
-                        <span class="ml-4">Reservation</span>
+                        <span class="ml-4">Dashboard</span>
                     </a>
                 </li>
                 <li class="relative px-6 py-3">
@@ -96,77 +96,8 @@
             </div>
         </header>
         <main class="h-full overflow-y-auto">
-            <div class="container px-6 mx-auto grid">
-                <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                    Statistics
-                </h2>
-                <!-- Cards -->
-                <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 12a1 1 0 011-1h1a1 1 0 110 2H9a1 1 0 01-1-1zm1-7a1 1 0 00-1 1v3a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total clients
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                6389
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5 2a3 3 0 013 3v10a3 3 0 01-3 3h10a3 3 0 01-3-3V5a3 3 0 013-3H5zm5 5a1 1 0 00-1 1v3a1 1 0 102 0V8a1 1 0 00-1-1zm0 6a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Account balance
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 46,760.89
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 2a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1H3zm8 4a1 1 0 00-1 1v5a1 1 0 102 0V7a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total income
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 15,480.00
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                        <div class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 4a1 1 0 100 2h2a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                Total expenses
-                            </p>
-                            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                $ 10,251.00
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="container mt-10 px-6 mx-auto grid">
+                                
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
                         <a href="{{ route('operator.addCar') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add Car</a>
@@ -191,17 +122,17 @@
                                         {{ $car->price_per_day }} MAD/Day
                                     </td>
                                     <td class="px-4 py-3">
-                                        @if ($car->avalability === 'available')
+                                        @if ($car->availability === 'available')
                                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                            {{ $cars->first()->avalability }}
+                                            {{ $cars->first()->availability }}
                                         </span>
-                                        @elseif($car->avalability === 'reserved')
+                                        @elseif($car->availability === 'reserved')
                                         <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-100">
-                                            {{ $cars->first()->avalability }}
+                                            {{ $cars->first()->availability }}
                                         </span>
-                                        @elseif($car->avalability === 'maintenance')
+                                        @elseif($car->availability === 'maintenance')
                                         <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:bg-orange-700 dark:text-orange-100">
-                                            {{ $cars->first()->avalability }}
+                                            {{ $cars->first()->availability }}
                                         </span>
                                         @endif
                                     </td>
@@ -217,11 +148,7 @@
                                     </td>
                                     <td class="px-4 py-3 text-sm">
                                         <div class="flex space-x-4">
-                                            <a href="{{ route('operator.editCar', ['car'=> $car->id]) }}">    
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                                </svg>
-                                            </a>
+                                            
                                             <form action="{{ route('operator.destroycar', ['car' => $car->id]) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
