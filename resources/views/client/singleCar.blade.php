@@ -58,7 +58,7 @@
                     <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
                     <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
                     <li><a href="#" class="block px-4 py-2 text-white">Categories</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-white">Contact</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-white">Reservation History</a></li>
                 </ul>
             </div>
         </div>

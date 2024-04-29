@@ -1,0 +1,81 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    
+    var likeButtons = document.querySelectorAll('.like-btn');
+    var unlikeButtons = document.querySelectorAll('.unlike-btn');
+
+    likeButtons.forEach(function(btn) {
+        var carId = btn.getAttribute('data-car-id');
+        var url = btn.getAttribute('data-check-url');
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({ carId: carId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.liked) {
+                // Car is liked, display unlike button
+                btn.style.display = 'none';
+                btn.nextElementSibling.style.display = 'inline';
+            } else {
+                // Car is not liked, display like button
+                btn.style.display = 'inline';
+                btn.nextElementSibling.style.display = 'none';
+            }
+        })
+        .catch(error => console.error(error));
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var carId = this.getAttribute('data-car-id');
+            var url = this.getAttribute('data-url');
+            var likeCountSpan = this.parentElement.querySelector('.like-count');
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({ carId: carId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                likeCountSpan.textContent = data.likes_count;
+                btn.style.display = 'none';
+                btn.nextElementSibling.style.display = 'inline';
+            })
+            .catch(error => console.error(error));
+        });
+    });
+
+    unlikeButtons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var carId = this.getAttribute('data-car-id');
+            var url = this.getAttribute('data-url');
+            var likeCountSpan = this.parentElement.querySelector('.like-count');
+
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({ carId: carId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                likeCountSpan.textContent = data.likes_count;
+                btn.style.display = 'none';
+                btn.previousElementSibling.style.display = 'inline';
+            })
+            .catch(error => console.error(error));
+        });
+    });
+});

@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
+use App\Models\Reservation;
 
 class ClientController extends Controller
 {
@@ -34,6 +35,14 @@ class ClientController extends Controller
         $car = Car::findOrFail($carId);
         $clientId = Auth::user()->clients()->first()->id;
         return view('client.singleCar', compact('car', 'clientId'));      
+    }
+
+
+    public function reservation(){
+        $PaidReservations = Reservation::where('status', 1)->get();
+        $NotPaidReservations = Reservation::where('status', 0)->get();
+
+        return view('client.reservationHistory', compact('PaidReservations','NotPaidReservations'));
     }
 
     /**

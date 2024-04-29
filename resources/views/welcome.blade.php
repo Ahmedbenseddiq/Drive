@@ -98,9 +98,9 @@
                                     <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
                                         
                                     </a>
-                                    <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
+                                    {{-- <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
                                         view more
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div> 
                             @endforeach 

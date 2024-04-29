@@ -112,7 +112,6 @@
                                 </div>                                
                                 <div class="flex items-center justify-between mt-4">
                                     <span class="text-gray-900 font-bold text-lg">{{ $car->price_per_day }} MAD/Day</span>
-                                    <button href="" class="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Reserve</button>
                                 </div>
                             </div>                            
                             @endforeach

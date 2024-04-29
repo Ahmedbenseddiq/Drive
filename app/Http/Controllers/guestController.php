@@ -17,6 +17,6 @@ class guestController extends Controller
     public function cars(){
         $categories = Category::all();
         $cars = car::all();
-        return view('client.cars', compact('categories', 'cars'));  
+        return view('/cars', compact('categories', 'cars'));  
     }
 }

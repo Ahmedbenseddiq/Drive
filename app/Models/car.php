@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\like;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class car extends Model
 {
@@ -27,6 +28,10 @@ class car extends Model
         return $this->belongsTo(CarDetail::class,'carDetail_id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany(like::class);
+    }
 
     public function category()
     {

@@ -52,13 +52,13 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                         </svg>
                     </button>
-                    <!-- Main menu -->w
+                    <!-- Main menu -->
                     <div class="hidden me-20 w-52 absolute top-full right-0 bg-transparent z-10 rounded-lg dark:bg-transparent dark:border bg-opacity-50 backdrop-filter backdrop-blur-md dark:border-tbg-transparent" id="navbar-hamburger">
                         <ul class="py-1">
                             <li><a href="{{ route('client.home') }}" class="block px-4 py-2 text-white">Home</a></li>
                             <li><a href="{{ route('client.cars') }}" class="block px-4 py-2 text-white">Cars</a></li>
                             <li><a href="#" class="block px-4 py-2 text-white">Categories</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-white">Reservation History</a></li>
+                            <li><a href="{{ route('client.reservationHistory') }}" class="block px-4 py-2 text-white">Reservation History</a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,40 +79,39 @@
            </div>
         </div>
         
-
-
-            <div class="flex justify-center relative z-10">
-                <div class="text-center">
-                    <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Categories</h2>
-                    <div class="mb-20">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                @foreach ($categories as $category)
-                                <div class="block max-w-[18rem] rounded-lg bg-black text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('{{ $category->image }}'); background-size: cover;">
-                                    <div class="p-6">
-                                        <h5 class="mb-1 text-xl font-medium leading-tight">
-                                            {{ $category->name }}
-                                        </h5>
-                                        <h6 class="mb-2 text-transparent font-medium leading-tight ">
-                                            Card subtitle
-                                        </h6>
-                                        <p class="mb-4 text-base text-transparent leading-normal">
-                                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                                        </p>
-                                        <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            
-                                        </a>
-                                        <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
-                                            view more
-                                        </a>
-                                    </div>
-                                </div> 
-                                @endforeach 
-                            </div>
+        
+        <div class="flex justify-center relative z-10">
+            <div class="text-center">
+                <h2 class="text-white mt-10 mb-10 font-bold" style="font-size: 32px;">Categories</h2>
+                <div class="mb-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            @foreach ($categories as $category)
+                            <div class="block max-w-[18rem] rounded-lg bg-black text-center text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white" style="background-image: url('{{ $category->image }}'); background-size: cover;">
+                                <div class="p-6">
+                                    <h5 class="mb-1 text-xl font-medium leading-tight">
+                                        {{ $category->name }}
+                                    </h5>
+                                    <h6 class="mb-2 text-transparent font-medium leading-tight ">
+                                        Card subtitle
+                                    </h6>
+                                    <p class="mb-4 text-base text-transparent leading-normal">
+                                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                                    </p>
+                                    <a type="button" href="#" class="pointer-events-auto me-5 inline-block cursor-pointer rounded text-base font-normal leading-normal text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
+                                        
+                                    </a>
+                                    <a type="button" href="#" class="pointer-events-auto inline-block cursor-pointer rounded text-base font-normal leading-normal text-white transition duration-150 ease-in-out hover:text-white focus:text-gray-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:text-primary-400">
+                                        view more
+                                    </a>
+                                </div>
+                            </div> 
+                            @endforeach 
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         
         <div class="flex justify-center">
             <div class="text-center">

@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\guestController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CarInfoController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\guestController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\ReservationController;
 
@@ -75,4 +76,8 @@ Route::middleware(['auth','role:client'])->group(function (){
     Route::get('client/singleCar/{carId}', [ClientController::class, 'singleCar'])->name('client.singleCar');
     Route::post('client/reservation/{carId}', [ReservationController::class, 'store'])->name('client.reservation');
     Route::get('client/cars/{category_id}', [ClientController::class, 'filterByCategory'])->name('client.filter');
+    Route::get('client/reservationHistory', [ClientController::class, 'reservation'])->name('client.reservationHistory');
+    Route::post('client/{car}/like', [LikeController::class, 'like'])->name('client.like');
+    Route::delete('client/{car}/unlike', [LikeController::class, 'unlike'])->name('client.unlike');
+
 });
