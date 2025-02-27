@@ -103,11 +103,11 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="role" value="Role" />
+                <div className="mt-5">
+                    {/* <InputLabel className='mb-2' htmlFor="role" value="" /> */}
 
                     <div className="flex items-center">
-                        <label className="mr-4">
+                        <label  className="mr-4 text-gray-300">
                             <input
                                 type="radio"
                                 name="role"
@@ -117,7 +117,7 @@ export default function Register() {
                             />{' '}
                             Client
                         </label>
-                        <label>
+                        <label className="mr-4 text-gray-300">
                             <input
                                 type="radio"
                                 name="role"

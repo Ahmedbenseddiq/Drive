@@ -51,14 +51,28 @@ class RegisteredUserController extends Controller
         } else {
             $user->status = 'active'; 
         }
-        
-        
+
         $user->save();
 
         event(new Registered($user));
 
         Auth::login($user);
 
+        // dd(vars: $user->getRoleNames()->first());
+
+        // switch ($user->getRoleNames()->first()) {
+        //     case 'Agency':
+        //         return $user->status === 'pending'
+        //             ? redirect()->route('pending.agency.notice')  
+        //             : redirect()->route('agency.dashboard');      
+    
+        //     case 'Client':
+        //         return redirect()->route('client.dashboard');
+    
+        //     default:
+        //         return redirect()->route('register');  
+        // }
+            
         return redirect(route('dashboard', absolute: false));
     }
 }
