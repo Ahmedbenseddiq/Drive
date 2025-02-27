@@ -11,6 +11,7 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        role: 'client',
     });
 
     const submit = (e) => {
@@ -101,6 +102,36 @@ export default function Register() {
                         className="mt-2"
                     />
                 </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="role" value="Role" />
+
+                    <div className="flex items-center">
+                        <label className="mr-4">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Client"
+                                checked={data.role === 'Client'}
+                                onChange={() => setData('role', 'Client')}
+                            />{' '}
+                            Client
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Agency"
+                                checked={data.role === 'Agency'}
+                                onChange={() => setData('role', 'Agency')}
+                            />{' '}
+                            Agency
+                        </label>
+                    </div>
+
+                    <InputError message={errors.role} className="mt-2" />
+                </div>
+
 
                 <div className="mt-4 flex items-center justify-end">
                     <Link
