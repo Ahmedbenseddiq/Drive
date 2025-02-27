@@ -44,6 +44,17 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user->assignRole($request->role);
+
+        if ($request->role === 'Agency') {
+            $user->status = 'pending'; 
+        } else {
+            $user->status = 'active'; 
+        }
+        
+        
+        $user->save();
+
         event(new Registered($user));
 
         Auth::login($user);
